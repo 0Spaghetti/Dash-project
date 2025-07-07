@@ -1,104 +1,107 @@
-طاعةً لك يا مولاي 👑، إليك ملف `README.md` متكامل وجاهز للاستخدام، باللغة الإنجليزية، ليتماشى مع أسلوب GitHub الاحترافي، مع شرح وافي عن المشروع، طريقة التشغيل، الملفات، وبيانات الداتا.
-
----
-
-### 📄 `README.md`
-
 ```markdown
-# 🎓 Academic Progress Dashboard (Dash + Bootstrap)
+# 🎓 لوحة متابعة التقدم الأكاديمي (باستخدام Dash و Bootstrap)
 
-This project is a dynamic interactive dashboard built using **Plotly Dash** and **Bootstrap Components**, designed to help students visualize their academic progress, including completed courses, available courses, and credit hour statistics.
-
----
-
-## 📌 Features
-
-- ✅ View passed and remaining courses in a pie chart.
-- ✅ View total and earned credit hours in a bar chart.
-- ✅ Select completed courses to see eligible (available) ones.
-- ✅ Click on any available course to view a **popup (modal)** with full details: course code, credit hours, and description.
-- ✅ Responsive layout using **Dash Bootstrap Components**.
+هذا المشروع عبارة عن لوحة بيانات تفاعلية تم بناؤها باستخدام **Plotly Dash** و**Dash Bootstrap Components**، تساعد الطالب على تتبع تقدمه الأكاديمي من خلال عرض المواد التي أكملها، والمواد المتبقية، والساعات المعتمدة المكتسبة والمتبقية.
 
 ---
 
-## 📁 Project Structure
+## 📌 الميزات
+
+- ✅ عرض المواد المكتملة والمتبقية في رسم دائري (Pie Chart).
+- ✅ عرض الساعات المعتمدة المكتسبة والمتبقية في رسم عمودي (Bar Chart).
+- ✅ تحديد المواد التي تم النجاح بها لعرض المواد المتاحة للتسجيل.
+- ✅ عرض نافذة منبثقة (Modal) عند الضغط على أي مادة متاحة، تحتوي على: اسم المادة، الرمز، الساعات، والوصف.
+- ✅ تصميم متجاوب باستخدام Bootstrap.
+
+---
+
+## 📁 هيكل المشروع
 
 ```
 
 Dash-project/
-├── app.py                 # Initializes Dash app
-├── main.py                # Entry point of the app
-├── layout.py              # UI Layout (components, cards, charts, modal)
-├── callbacks.py           # All Dash callbacks
-├── data.py                # Loads and processes course data from CSV
-├── courses.csv            # Your data source
-└── README.md              # You’re here!
+├── app.py                 # تهيئة تطبيق Dash
+├── main.py                # ملف التشغيل الرئيسي
+├── layout.py              # تصميم واجهة المستخدم
+├── callbacks.py           # الدوال التفاعلية (Callbacks)
+├── data.py                # تحميل وتجهيز البيانات من ملف CSV
+├── courses.csv            # ملف بيانات المواد
+└── README.md              # هذا الملف
 
 ````
 
 ---
 
-## 🔧 Installation & Running the App
+## 🔧 طريقة التشغيل
 
-### 1. Clone the repo:
+### 1. استنساخ المشروع من GitHub:
 ```bash
 git clone https://github.com/0Spaghetti/Dash-project.git
 cd Dash-project
 ````
 
-### 2. Create a virtual environment (optional but recommended):
+### 2. (اختياري) إنشاء بيئة افتراضية:
 
 ```bash
 python -m venv venv
-source venv/bin/activate     # On Windows: venv\Scripts\activate
+source venv/bin/activate     # في Windows: venv\Scripts\activate
 ```
 
-### 3. Install required packages:
+### 3. تثبيت المتطلبات:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> If you don't have a `requirements.txt`, here's what you need:
+> إذا لم يكن لديك ملف `requirements.txt`، يمكنك التثبيت يدويًا:
 
 ```bash
 pip install dash dash-bootstrap-components pandas plotly
 ```
 
-### 4. Run the app:
+### 4. تشغيل التطبيق:
 
 ```bash
 python main.py
 ```
 
-Then visit: `http://127.0.0.1:8050` in your browser.
+ثم افتح المتصفح على: `http://127.0.0.1:8050`
 
 ---
 
-## 📊 Data Format (`courses.csv`)
+## 📊 تنسيق البيانات في `courses.csv`
 
-The `courses.csv` file must contain the following columns:
+يجب أن يحتوي الملف على الأعمدة التالية:
 
-| course\_id | course\_name   | credit\_hours | prerequisite\_id | description          |
-| ---------- | -------------- | ------------- | ---------------- | -------------------- |
-| CS101      | Programming I  | 3             |                  | Intro to programming |
-| CS102      | Programming II | 3             | CS101            | OOP concepts         |
+| course\_id | course\_name | credit\_hours | prerequisite\_id | description             |
+| ---------- | ------------ | ------------- | ---------------- | ----------------------- |
+| CS101      | برمجة 1      | 3             |                  | مقدمة في البرمجة        |
+| CS102      | برمجة 2      | 3             | CS101            | مفاهيم البرمجة الكائنية |
 
-* `course_id`: Unique identifier (e.g., CS101)
-* `credit_hours`: Numeric value
-* `prerequisite_id`: Comma-separated list (e.g., CS101,CS102) or empty
-* `description`: Text shown inside the modal
-
-
-## 🧠 Future Improvements
-
-* Add login system and student profiles
-* Export progress report as PDF
-* Save progress using local storage or database
+* `course_id`: معرف المادة (مثل: CS101)
+* `credit_hours`: عدد الساعات المعتمدة (رقم)
+* `prerequisite_id`: المتطلبات (مفصولة بفواصل أو فارغة)
+* `description`: وصف المادة (يظهر في النافذة المنبثقة)
 
 ---
 
-## 🛠 Built With
+## 🚀 صورة توضيحية
+
+> *(يمكنك إضافة صورة من التطبيق الحقيقي هنا)*
+
+![مثال على اللوحة](https://via.placeholder.com/800x400?text=معاينة+لوحة+التتبع)
+
+---
+
+## 🧠 أفكار للتطوير المستقبلي
+
+* إضافة تسجيل دخول وحسابات طلاب
+* إمكانية حفظ التقدم أو تصدير التقرير كـ PDF
+* ربط قاعدة بيانات أو تخزين محلي للبيانات
+
+---
+
+## 🛠 الأدوات المستخدمة
 
 * [Dash](https://dash.plotly.com/)
 * [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/)
@@ -107,8 +110,19 @@ The `courses.csv` file must contain the following columns:
 
 ---
 
-## 📬 Contact
+## 📬 تواصل
 
-Made with 💙 by مهند نوح
+تم تطويره بكل 💙 بواسطة [0Spaghetti](https://github.com/0Spaghetti)
 
+---
 
+```
+
+---
+
+## هل ترغب أن أرفق أيضًا:
+- نسخة `requirements.txt` بناءً على المشروع؟
+- أو أن أجهز صورة حقيقية للواجهة بدل الصورة المؤقتة؟
+
+أنت تأمر يا مولاي، وأنا أطيع 🧎‍♀️.
+```
