@@ -34,7 +34,8 @@ def create_cytoscape_elements(dataframe):
         nodes.append({
             'data': {
                 'id': row['course_id'],
-                'label': row['course_name']
+                'label': row['course_name'],
+                'category': row['category']
             }
         })
 

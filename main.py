@@ -1,6 +1,10 @@
+import dash_cytoscape as cyto # <<< 1. استيراد المكتبة هنا
 from app import app, server
 from layout import layout
-import callbacks # فقط قم باستيراد الملف ليتم تسجيل الـ callbacks
+import callbacks
+
+# <<< 2. إضافة السطر المهم لتحميل الإضافات
+cyto.load_extra_layouts()
 
 # تعيين الواجهة للتطبيق
 app.layout = layout
