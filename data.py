@@ -12,7 +12,7 @@ def load_data():
         df['prerequisite_id'] = df['prerequisite_id'].astype(str)
         
         # تجهيز قائمة الخيارات لمكون الـ Checklist
-        course_options = [{'label': f"{row['course_name']} ({row['credit_hours']} ساعات)", 'value': row['course_id']} 
+        course_options = [{'label': f"{row['course_name']} ({row['credit_hours']} وحدات)", 'value': row['course_id']}
                           for index, row in df.iterrows()]
         
         return df, course_options
