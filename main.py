@@ -2,6 +2,7 @@ import dash_cytoscape as cyto # <<< 1. استيراد المكتبة هنا
 from app import app, server
 from layout import layout
 import callbacks
+import app2
 
 # <<< 2. إضافة السطر المهم لتحميل الإضافات
 cyto.load_extra_layouts()

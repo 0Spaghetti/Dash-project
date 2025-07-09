@@ -2,9 +2,11 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 import dash_cytoscape as cyto
 from data import course_options, cytoscape_elements
+from app2 import layout_app2 as student_dashboard
+
 
 # تعريف متغير الواجهة
-layout = dbc.Container([
+layout_app1 = dbc.Container([
     # --- وحدة التخزين لحفظ اختيارات المستخدم ---
     dcc.Store(id='local-storage', storage_type='local'),
 
@@ -138,3 +140,13 @@ layout = dbc.Container([
         ], width=12, md=3)
     ])
 ], fluid=True)
+
+layout = html.Div([
+    html.H1("لوحة التحكم الرئيسية", style={'textAlign': 'center', 'padding': '20px'}),
+    dbc.Tabs(
+        [
+            dbc.Tab(label="📈 مخطط المسار الدراسي", children=[layout_app1]),
+            dbc.Tab(label="👤 لوحة بيانات الطالب الشخصية", children=[student_dashboard]),
+        ]
+    )
+])

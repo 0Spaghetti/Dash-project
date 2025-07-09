@@ -1,0 +1,42 @@
+Name,Subject,SubjectCode,SemiFinal,Final,Score
+Mohaned,Problem Solving,ITGS113,32,48,80
+Mohaned,Database,ITGS228,28,50,78
+Mohaned,Object-Oriented Programming,ITGS211,30,52,82
+Mohaned,HTML,ITGS226,35,55,90
+Mohaned,Data Structure,ITGS220,29,47,76
+Mohaned,Numerical Methods,ITGS219,31,49,80
+
+Youssef,Problem Solving,ITGS113,36,53,89
+Youssef,Database,ITGS228,30,55,85
+Youssef,Object-Oriented Programming,ITGS211,34,54,88
+Youssef,HTML,ITGS226,33,52,85
+Youssef,Data Structure,ITGS220,31,50,81
+Youssef,Numerical Methods,ITGS219,28,45,73
+
+Anas,Problem Solving,ITGS113,28,45,73
+Anas,Database,ITGS228,25,42,67
+Anas,Object-Oriented Programming,ITGS211,27,48,75
+Anas,HTML,ITGS226,30,49,79
+Anas,Data Structure,ITGS220,26,44,70
+Anas,Numerical Methods,ITGS219,29,47,76
+
+Omar,Problem Solving,ITGS113,33,52,85
+Omar,Database,ITGS228,29,50,79
+Omar,Object-Oriented Programming,ITGS211,32,54,86
+Omar,HTML,ITGS226,34,53,87
+Omar,Data Structure,ITGS220,28,48,76
+Omar,Numerical Methods,ITGS219,30,46,76
+
+Fatima,Problem Solving,ITGS113,35,54,89
+Fatima,Database,ITGS228,31,52,83
+Fatima,Object-Oriented Programming,ITGS211,33,53,86
+Fatima,HTML,ITGS226,32,51,83
+Fatima,Data Structure,ITGS220,30,49,79
+Fatima,Numerical Methods,ITGS219,27,44,71
+
+Hassan,Problem Solving,ITGS113,29,47,76
+Hassan,Database,ITGS228,27,46,73
+Hassan,Object-Oriented Programming,ITGS211,28,48,76
+Hassan,HTML,ITGS226,30,50,80
+Hassan,Data Structure,ITGS220,26,45,71
+Hassan,Numerical Methods,ITGS219,25,43,68
