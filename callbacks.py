@@ -136,6 +136,35 @@ def clear_selections(n_clicks):
     # هذا يقوم بمسح الذاكرة، والـ callback الأول سيهتم بتحديث الواجهة
     return {'passed_courses': []}
 
+# --- Callback جديد لتحديث تخطيط الخريطة ---
+@app.callback(
+    Output('cytoscape-graph', 'layout'),
+    Input('layout-selector', 'value')
+)
+def update_cytoscape_layout(layout_name):
+    # القيم الثابتة للجذور، يمكن جعلها ديناميكية مستقبلاً
+    root_nodes_selector = '[id = "ITGS211"], [id = "ITGS223"], [id = "ITGS215"], [id = "ITGS224"], [id = "ITGS226"], [id = "ITGS228"]'
+
+    if layout_name == 'dagre':
+        return {
+            'name': 'dagre',
+            'spacingFactor': 1.2,
+            'roots': root_nodes_selector # مهم للتخطيط الشجري
+        }
+    elif layout_name == 'breadthfirst':
+        return {
+            'name': 'breadthfirst',
+            'roots': root_nodes_selector, # مهم للتخطيط العرضي
+            'grid': True
+        }
+    else:
+        # باقي التخطيطات لا تحتاج لخاصية roots
+        return {
+            'name': layout_name,
+            'animate': True,
+            'animationDuration': 500
+        }
+
 # --- Callbacks لعرض التفاصيل والنافذة المنبثقة (تبقى كما هي) ---
 @app.callback(Output('course-details-output', 'children'), Input('cytoscape-graph', 'tapNodeData'), prevent_initial_call=True)
 def display_tap_node_data(data):

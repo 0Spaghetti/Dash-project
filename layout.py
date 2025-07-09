@@ -94,22 +94,43 @@ layout = dbc.Container([
     # --- الصف الثالث: خريطة المواد وتفاصيلها ---
     dbc.Row([
         dbc.Col([
-            dbc.Card([
-                dbc.CardHeader(html.H4("خريطة الخطة الدراسية")),
-                dbc.CardBody(
-                    dcc.Loading(type="circle", children=
-                        cyto.Cytoscape(
-                            id='cytoscape-graph',
-                            elements=cytoscape_elements,
-                            style={'width': '100%', 'height': '500px'},
-                            layout={'name': 'dagre', 'spacingFactor': 1.2, 'roots': '[id = "ITGS211"], [id = "ITGS223"], [id = "ITGS215"], [id = "ITGS224"], [id = "ITGS226"], [id = "ITGS228"]'}
+                dbc.Card([
+                    dbc.CardHeader(
+                        dbc.Row([
+                            dbc.Col(html.H4("خريطة الخطة الدراسية"), width=6),
+                            dbc.Col(
+                                dbc.RadioItems(
+                                    id='layout-selector',
+                                    options=[
+                                        {'label': 'شجري (Dagre)', 'value': 'dagre'},
+                                        {'label': 'عرضي (Breadthfirst)', 'value': 'breadthfirst'},
+                                        {'label': 'دائري (Circle)', 'value': 'circle'},
+                                        {'label': 'شبكي (Grid)', 'value': 'grid'},
+                                    ],
+                                    value='dagre',  # القيمة الافتراضية
+                                    inline=True,
+                                    labelClassName="p-2",
+                                    inputClassName="mx-1",
+                                ),
+                                width=6,
+                                className="d-flex justify-content-end align-items-center"
+                            ),
+                        ])
+                    ),
+                    dbc.CardBody(
+                        dcc.Loading(type="circle", children=
+                            cyto.Cytoscape(
+                                id='cytoscape-graph',
+                                elements=cytoscape_elements,
+                                style={'width': '100%', 'height': '500px'},
+                                # تم حذف خاصية 'layout' من هنا، ستتم إضافتها عبر الـ callback
+                            )
                         )
                     )
-                )
-            ])
-        ], width=12, md=9),
+                ])
+            ], width=12, md=9),
         
-        dbc.Col([
+            dbc.Col([
             dbc.Card([
                 dbc.CardHeader(html.H5("تفاصيل المادة")),
                 dbc.CardBody(id="course-details-output", style={'minHeight': '500px'})
