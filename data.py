@@ -42,7 +42,11 @@ def create_cytoscape_elements(dataframe):
         # --- 2. إنشاء الروابط (Edges) ---
         if row['prerequisite_id'] != 'nan':
             # التعامل مع حالة وجود أكثر من متطلب واحد
-            prerequisites = row['prerequisite_id'].split(',')
+            prerequisites = [
+                prereq.strip()
+                for prereq in row['prerequisite_id'].split(',')
+                if prereq.strip()
+            ]
             for prereq in prerequisites:
                 edges.append({
                     'data': {
