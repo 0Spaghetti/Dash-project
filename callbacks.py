@@ -64,7 +64,7 @@ def save_selections_to_storage(checklist_values, stored_data, active_tab):
 )
 def update_all_outputs(n_clicks, stored_data):
     # الحالة الأولية قبل الضغط على الزر
-    if n_clicks == 0:
+    if not n_clicks:
         empty_fig = go.Figure().update_layout(xaxis={"visible": False}, yaxis={"visible": False}, annotations=[{"text": "البيانات ستظهر هنا", "xref": "paper", "yref": "paper", "showarrow": False, "font": {"size": 16}}])
         default_stylesheet = [{'selector': 'node', 'style': {'shape': 'rectangle', 'background-color': '#adb5bd', 'label': 'data(label)', 'width': 'label', 'height': 'label', 'padding': '10px', 'color': '#000', 'text-wrap': 'wrap', 'text-valign': 'center'}}, {'selector': '[category = "Core"]', 'style': {'background-color': '#904694'}}, {'selector': '[category = "Elective"]', 'style': {'background-color': '#2ab472'}}, {'selector': '[category = "General"]', 'style': {'background-color': '#00aae2'}}, {'selector': 'edge', 'style': {'line-color': '#adb5bd', 'target-arrow-shape': 'triangle', 'target-arrow-color': '#adb5bd', 'curve-style': 'straight'}}]
         kpi_card_initial = dbc.CardBody([html.H4("...", className="card-title"), html.P("0", className="card-text fs-4")])
