@@ -142,8 +142,11 @@ def clear_selections(n_clicks):
     Input('layout-selector', 'value')
 )
 def update_cytoscape_layout(layout_name):
-    # القيم الثابتة للجذور، يمكن جعلها ديناميكية مستقبلاً
-    root_nodes_selector = '[id = "ITGS211"], [id = "ITGS223"], [id = "ITGS215"], [id = "ITGS224"], [id = "ITGS226"], [id = "ITGS228"]'
+    root_course_ids = df.loc[
+        df['prerequisite_id'].isna() | (df['prerequisite_id'] == ''),
+        'course_id'
+    ].tolist()
+    root_nodes_selector = ', '.join([f'[id = "{course_id}"]' for course_id in root_course_ids])
 
     if layout_name == 'dagre':
         return {
